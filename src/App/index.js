@@ -6,7 +6,7 @@ import { AppProvider } from './AppProvider';
 import Settings from '../Settings';
 import Content from '../Shared/Content';
 
-
+// cc.setApiKey('5c8ed6d444d41ba7bd0e8d238a9d48506f024974b1ea11cfa67754736a5ac4cc');
 class App extends Component {
   render() {
     return (
