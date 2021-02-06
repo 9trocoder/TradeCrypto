@@ -10,8 +10,10 @@ const ConfirmButtonStyled = styled.div`
     padding: 5px;
     cursor: pointer;
     &:hover {
-        ${greenBoxShadow}
-       
+        ${greenBoxShadow} 
+        border: 0.5px solid orange; 
+        border-radius: 1px;  
+        padding: 15px;   
     }
 `
 export const CenterDiv = styled.div`

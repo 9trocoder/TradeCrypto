@@ -11,15 +11,15 @@ if (lightTheme) {
   document.body.style.color = '#061a44';
 }
 
-export const lightBlueBackground = `background-color: ${color}`;
+export const lightBlueBackground = `background-color: teal`;
 export const backgroundColor2 = `background-color: ${color2};`;
 export const greenBackgroundColor = `background-color: ${color3};`;
 
 export const fontColorGreen = `color: #03A9F4`;
 export const fontColorWhite = `color: white`;
-export const subtleBoxShadow = `box-shadow: 0px 0px 5px 1px ${lightTheme ? '#a9b6ff' : '#121d5b'}`;
-export const greenBoxShadow = `border: 2px solid orange; border-radius: 5px; padding: 0.25em 1em`;
-export const redBoxShadow = `box-shadow: 0px 0px 2px 2px #e41111`;
+export const subtleBoxShadow = `border: 0.5px solid grey; border-radius: 1px; background-color: teal; padding: 10px;`;
+export const greenBoxShadow = `background-color: #13161b; color: orange;`;
+export const redBoxShadow = `box-shadow: 0px 0px 2px 2px #e41111;`;
 
 export const fontSizeBig = 'font-size: 2em';
 export const fontSize1 = 'font-size: 1.2em;';
