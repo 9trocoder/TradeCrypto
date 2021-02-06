@@ -1,34 +1,27 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { AppContext } from "../App/AppProvider";
+import CoinTile from "./CoinTiles";
 
 export const CoinGridStyled = styled.div`
     display: grid;
     grid-template-columns: repeat(5, .2fr);
     grid-gap: 35px;
+    margin-top: 40px;
 `
 
-export const Tiling = styled.div`
-    border: 0.5px solid grey; 
-    border-radius: 1px; 
-    padding: 10px;
-    background-color: teal;
-    color: orange;
-    &:hover {
-        cursor: pointer;
-        background-color: #13161b;
-        color: orange;
-    }
-`
+
+
+function getCoinsToDisplay(coinList) {
+    return Object.keys(coinList).slice(0, 70);
+}
 
 // eslint-disable-next-line
 export default function () {
     return <AppContext.Consumer>
         {({ coinList }) => <CoinGridStyled>
-            {Object.keys(coinList).map(coinKey =>
-                <Tiling>
-                    {coinKey}
-                </Tiling>
+            {getCoinsToDisplay(coinList).map(coinKey =>
+                <CoinTile coinKey={coinKey} />
             )}
         </CoinGridStyled>}
     </AppContext.Consumer>
