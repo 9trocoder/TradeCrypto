@@ -18,6 +18,7 @@ export class AppProvider extends React.Component {
             removeCoin: this.removeCoin,
             isInFavorites: this.isInFavorites,
             confirmFavorites: this.confirmFavorites,
+            setCurrentFavorite: this.setCurrentFavorite,
             setFilteredCoins: this.setFilteredCoins
         }
     }
@@ -69,16 +70,29 @@ export class AppProvider extends React.Component {
     isInFavorites = key => _.includes(this.state.favorites, key)
 
     confirmFavorites = () => {
+        let currentFavorite = this.state.favorites[0];
         this.setState({
             firstVisit: false,
-            page: 'dashboard'
+            page: 'dashboard',
+            currentFavorite,
         }, () => {
                 this.fetchPrices(); 
         });
         localStorage.setItem('tradeIndex', JSON.stringify({
-            favorites: this.state.favorites
+            favorites: this.state.favorites,
+            currentFavorite
         }));
 
+    }
+
+    setCurrentFavorite = (sym) => {
+        this.setState({
+            currentFavorite: sym
+        });
+        localStorage.setItem('tradeIndex', JSON.stringify({
+            ...JSON.parse(localStorage.getItem('tradeIndex')),
+            currentFavorite: sym
+        }))
     }
 
     savedSettings() {
@@ -86,8 +100,8 @@ export class AppProvider extends React.Component {
         if (!tradeIndexData) {
             return { page: 'settings', firstVisit: true }
         }
-        let { favorites } = tradeIndexData;
-        return {favorites};
+        let { favorites, currentFavorite } = tradeIndexData;
+        return {favorites, currentFavorite};
     }
 
     setPage = page => this.setState({ page })
