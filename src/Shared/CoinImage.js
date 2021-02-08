@@ -1,10 +1,21 @@
 import React from 'react';
+import styled, {css} from 'styled-components';
+
+const CoinImage = styled.img`
+    height: 50px;
+    padding-top: 10px; 
+    ${props => props.spotlight && css`
+        height: 200px;
+        margin: auto;
+        display: block;
+    `}
+`
 
 // eslint-disable-next-line
-export default function ({ coin, style }) {
-    return <img
+export default function ({ coin, spotlight }) {
+    return <CoinImage
+        spotlight={spotlight}
         alt={coin.CoinSymbol}
-        style={style || { height: '50px', paddingTop: '10px' }}
         src={`http://cryptocompare.com/${coin.ImageUrl
             }`}
     />;
